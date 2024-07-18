@@ -68,14 +68,15 @@ async def main():
     # 4. Create the secrets, add permissions, pay for and store it in the network
     # new_secret = nillion.NadaValues(
     #     {
-            # "v": nillion.SecretInteger(5),   # Replace with actual value
-            # "f": nillion.SecretInteger(54),   # Replace with actual value
-            # "th": nillion.SecretInteger(32)   # Replace with actual value
+    #         "a": nillion.SecretInteger(7),   # Replace with actual value
+    #         "b": nillion.SecretInteger(6),   # Replace with actual value
+    #         "c": nillion.SecretInteger(32),   # Replace with actual value
+    #         "notfound": nillion.SecretInteger(-1)
     #     }
     # )
     new_secret = nillion.NadaValues(
         {
-            "f": nillion.SecretInteger(54)  # Replace with the actual Fahrenheit value
+            "f": nillion.SecretInteger(5) # Replace with actual value
         }
     )
     # Set the input party for the secret
@@ -106,8 +107,9 @@ async def main():
     compute_bindings.add_input_party(party_name, party_id)
     compute_bindings.add_output_party(party_name, party_id)
 
-    # Add n, the last secret at computation time
-    computation_time_secrets = nillion.NadaValues({"n": nillion.SecretInteger(9)})
+    # Add d, the last secret at computation time
+    computation_time_secrets = nillion.NadaValues({"n": nillion.SecretInteger(54)})
+    # computation_time_secrets = nillion.NadaValues({"d": nillion.SecretInteger(54)})
 
     # Pay for the compute
     receipt_compute = await get_quote_and_pay(

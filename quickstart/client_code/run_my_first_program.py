@@ -66,11 +66,16 @@ async def main():
     print("Stored program_id:", program_id)
 
     # 4. Create the secrets, add permissions, pay for and store it in the network
+    # new_secret = nillion.NadaValues(
+    #     {
+            # "v": nillion.SecretInteger(5),   # Replace with actual value
+            # "f": nillion.SecretInteger(54),   # Replace with actual value
+            # "th": nillion.SecretInteger(32)   # Replace with actual value
+    #     }
+    # )
     new_secret = nillion.NadaValues(
         {
-            "v": nillion.SecretInteger(5),   # Replace with actual value
-            "f": nillion.SecretInteger(54),   # Replace with actual value
-            "th": nillion.SecretInteger(32)   # Replace with actual value
+            "f": nillion.SecretInteger(54)  # Replace with the actual Fahrenheit value
         }
     )
     # Set the input party for the secret
@@ -112,6 +117,13 @@ async def main():
         payments_client,
         cluster_id,
     )
+    # receipt_compute = await get_quote_and_pay(
+    #     client,
+    #     nillion.Operation.compute(program_id, new_secret),
+    #     payments_wallet,
+    #     payments_client,
+    #     cluster_id,
+    # )
 
     # Compute on the secret
     compute_id = await client.compute(
@@ -121,6 +133,13 @@ async def main():
         computation_time_secrets,
         receipt_compute,
     )
+    # compute_id = await client.compute(
+    #     cluster_id,
+    #     compute_bindings,
+    #     [store_id],
+    #     new_secret,
+    #     receipt_compute,
+    # )
 
     # 8. Return the computation result
     print(f"The computation was sent to the network. compute_id: {compute_id}")

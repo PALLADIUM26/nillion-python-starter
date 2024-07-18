@@ -24,12 +24,15 @@
 
 #     return [Output(D, "D", party1)]
 
+#PROGRAM TO CONVERT FARENHEIT INTO CELSIUS
+
 from nada_dsl import *
 def nada_main():
     party1 = Party(name="Party1")
-    v = SecretInteger(Input(name="v", party=party1))
+    # v = SecretInteger(Input(name="v", party=party1))
     f = SecretInteger(Input(name="f", party=party1))
-    th = SecretInteger(Input(name="th", party=party1))
+    # th = SecretInteger(Input(name="th", party=party1))
     n = SecretInteger(Input(name="n", party=party1))
-    c = v*(f-th)/n
+    c = (Integer(5)*(f-Integer(32)))/n
+    # c = v*(f-th)/n
     return [Output(c, "c", party1)]

@@ -100,7 +100,7 @@ async def main():
     compute_bindings.add_input_party(party_name, party_id)
     compute_bindings.add_output_party(party_name, party_id)
 
-    # Add d, the last secret at computation time
+    # Add secret n at computation time
     computation_time_secrets = nillion.NadaValues({"n": nillion.SecretInteger(54)})
 
     # Pay for the compute
@@ -380,7 +380,7 @@ async def main():
     compute_bindings.add_input_party(party_name, party_id)
     compute_bindings.add_output_party(party_name, party_id)
 
-    # Add d, the last secret at computation time
+    # Add secret c at computation time
     computation_time_secrets = nillion.NadaValues({"c": nillion.SecretInteger(54)})
 
     # Pay for the compute
